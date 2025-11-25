@@ -19,7 +19,8 @@ from src.sdlccopilot.logger import logging
 ## LLMs 
 gemini_llm = GeminiLLM("gemini-2.0-flash").get()
 qwen_llm = GroqLLM("qwen/qwen3-32b").get()
-anthropic_llm = AnthropicLLM("claude-3-5-sonnet-20241022").get()
+# anthropic_llm = AnthropicLLM("claude-3-5-sonnet-20241022").get()
+anthropic_llm = GeminiLLM("gemini-2.0-flash").get()
 
 class SDLCGraphBuilder:
     def __init__(self):

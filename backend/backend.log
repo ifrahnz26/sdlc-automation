@@ -1,0 +1,63 @@
+INFO:     Will watch for changes in these directories: ['/Users/midnight/Downloads/sdlc-copilot-main/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [36601] using StatReload
+INFO:     Started server process [36604]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62915 - "OPTIONS /stories/generate HTTP/1.1" 200 OK
+/Users/midnight/Downloads/sdlc-copilot-main/backend/venv/lib/python3.11/site-packages/pydantic/v1/main.py:1054: UserWarning: LangSmith now uses UUID v7 for run and trace identifiers. This warning appears when passing custom IDs. Please use: from langsmith import uuid7
+            id = uuid7()
+Future versions will require UUID v7.
+  input_data = validator(cls_, input_data)
+INFO:     127.0.0.1:62915 - "POST /stories/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62932 - "OPTIONS /stories/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62932 - "POST /stories/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62932 - "OPTIONS /documents/functional/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62932 - "POST /documents/functional/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62935 - "OPTIONS /documents/functional/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62935 - "POST /documents/functional/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62938 - "OPTIONS /documents/functional/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62938 - "POST /documents/functional/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62938 - "OPTIONS /documents/technical/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62938 - "POST /documents/technical/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62949 - "OPTIONS /documents/technical/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62949 - "POST /documents/technical/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62954 - "OPTIONS /documents/technical/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62954 - "POST /documents/technical/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62954 - "OPTIONS /code/frontend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62954 - "POST /code/frontend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62962 - "OPTIONS /code/frontend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62962 - "POST /code/frontend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62965 - "OPTIONS /code/frontend/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62965 - "POST /code/frontend/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62966 - "POST /code/frontend/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62966 - "OPTIONS /code/backend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62965 - "OPTIONS /code/backend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62965 - "POST /code/backend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62966 - "POST /code/backend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62968 - "POST /code/backend/generate/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62969 - "OPTIONS /code/backend/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62969 - "POST /code/backend/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62971 - "POST /code/backend/review/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62971 - "OPTIONS /security/review/get/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62969 - "OPTIONS /security/review/get/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+/Users/midnight/Downloads/sdlc-copilot-main/backend/venv/lib/python3.11/site-packages/pydantic/type_adapter.py:605: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected `SecurityReview` - serialized value may not be as expected [field_name='reviews', input_value={'sec_id': 'SR-001', 'rev...h.', 'priority': 'high'}, input_type=dict])
+  PydanticSerializationUnexpectedValue(Expected `SecurityReview` - serialized value may not be as expected [field_name='reviews', input_value={'sec_id': 'SR-002', 'rev...`.', 'priority': 'high'}, input_type=dict])
+  PydanticSerializationUnexpectedValue(Expected `SecurityReview` - serialized value may not be as expected [field_name='reviews', input_value={'sec_id': 'SR-003', 'rev...', 'priority': 'medium'}, input_type=dict])
+  PydanticSerializationUnexpectedValue(Expected `SecurityReview` - serialized value may not be as expected [field_name='reviews', input_value={'sec_id': 'SR-004', 'rev...', 'priority': 'medium'}, input_type=dict])
+  PydanticSerializationUnexpectedValue(Expected `SecurityReview` - serialized value may not be as expected [field_name='reviews', input_value={'sec_id': 'SR-005', 'rev...es.', 'priority': 'low'}, input_type=dict])
+  PydanticSerializationUnexpectedValue(Expected `SecurityReview` - serialized value may not be as expected [field_name='reviews', input_value={'sec_id': 'SR-006', 'rev...nt.", 'priority': 'low'}, input_type=dict])
+  return self.serializer.to_python(
+INFO:     127.0.0.1:62971 - "GET /security/review/get/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62969 - "GET /security/review/get/ff49b322-2585-40dc-b08a-69359f15633e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63288 - "OPTIONS /stories/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63288 - "POST /stories/generate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63295 - "OPTIONS /stories/review/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63295 - "POST /stories/review/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63297 - "POST /stories/review/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:63298 - "POST /stories/review/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:63298 - "OPTIONS /documents/functional/generate/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63297 - "OPTIONS /documents/functional/generate/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63298 - "POST /documents/functional/generate/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63297 - "POST /documents/functional/generate/9890d3a8-7999-4e54-9909-0be9dcface0e HTTP/1.1" 200 OK
