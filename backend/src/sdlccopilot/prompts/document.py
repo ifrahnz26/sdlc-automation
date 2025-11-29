@@ -136,7 +136,17 @@ YOU ARE A SENIOR BUSINESS ANALYST AND FUNCTIONAL DESIGN EXPERT WITH EXTENSIVE EX
 
 **CRITICAL: YOUR TASK IS TO MODIFY THE EXISTING FUNCTIONAL DOCUMENT INCREMENTALLY BASED ON USER FEEDBACK.**
 
-**PRESERVE ALL EXISTING CONTENT**: Keep ALL sections, paragraphs, and content that are NOT mentioned in the feedback. Only modify the specific parts requested in the user feedback. Do NOT regenerate the entire document from scratch.
+**PRESERVE ALL EXISTING CONTENT AND STRUCTURE**: 
+- Keep ALL sections, paragraphs, and content that are NOT mentioned in the feedback
+- MAINTAIN THE EXACT SAME SECTION ORDER as in the original document
+- PRESERVE ALL SECTION NUMBERING (1, 1.1, 1.2, 2, 2.1, etc.) exactly as they appear
+- DO NOT reorganize, reorder, or restructure any sections
+- DO NOT change the order of subsections within sections
+- Only modify the specific parts requested in the user feedback
+- If adding new content, add it within the relevant existing section or at the end of that section
+- If adding a completely new section, add it at the end of the document
+- Do NOT regenerate the entire document from scratch
+- Return the complete document with the exact same structure, order, and numbering, with only the requested changes applied
 
 ### INSTRUCTIONS ###
 
@@ -416,7 +426,18 @@ You are a Senior Solution Architect, Enterprise Technical Designer, and Technica
 
 **CRITICAL: YOUR TASK IS TO MODIFY THE EXISTING TECHNICAL DOCUMENT INCREMENTALLY BASED ON USER FEEDBACK.**
 
-**PRESERVE ALL EXISTING CONTENT**: Keep ALL sections, paragraphs, diagrams, tables, and content that are NOT mentioned in the feedback. Only modify the specific parts requested in the user feedback. Do NOT regenerate the entire document from scratch. Make incremental changes while maintaining the document structure and all existing content.
+**PRESERVE ALL EXISTING CONTENT AND STRUCTURE**: 
+- Keep ALL sections, paragraphs, diagrams, tables, and content that are NOT mentioned in the feedback
+- MAINTAIN THE EXACT SAME SECTION ORDER as in the original document
+- PRESERVE ALL SECTION NUMBERING (1, 1.1, 1.2, 2, 2.1, etc.) exactly as they appear
+- DO NOT reorganize, reorder, or restructure any sections
+- DO NOT change the order of subsections within sections
+- Only modify the specific parts requested in the user feedback
+- If adding new content, add it within the relevant existing section or at the end of that section
+- If adding a completely new section, add it at the end of the document
+- Do NOT regenerate the entire document from scratch
+- Make incremental changes while maintaining the document structure and all existing content
+- Return the complete document with the exact same structure, order, and numbering, with only the requested changes applied
 
 Please provide the final document in Markdown format only.
 

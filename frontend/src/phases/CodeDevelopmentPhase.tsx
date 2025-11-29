@@ -7,9 +7,10 @@ import { useInitializeProject } from "../hooks/useInitializeProject";
 import { useLocation } from "react-router-dom";
 import { parseXml } from "../utils";
 import { FileItem, Step, StepType } from "../types";
-import { Code2 } from "lucide-react";
+import { Code2, Download } from "lucide-react";
 import Loading from "../components/Loading";
 import ToastError from "../components/ToastError";
+import { downloadCodeAsZip } from "../utils/zipDownload";
 // import { Loader } from "lucide-react";
 
 interface BuilderProps {
@@ -40,6 +41,26 @@ export function CodeDevelopmentPhase({ selectedPhase, files, setFiles }: Builder
   // console.log(llmMessages);
 
   const [selectedFile, setSelectedFile] = useState<FileItem | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadZip = async () => {
+    if (files.length === 0) {
+      ToastError(new Error("No files to download"));
+      return;
+    }
+
+    setIsDownloading(true);
+    try {
+      const codeType = selectedPhase === "frontend-coding" ? "frontend" : "backend";
+      const filename = `${codeType}-code-${Date.now()}.zip`;
+      await downloadCodeAsZip(files, filename);
+    } catch (error: any) {
+      console.error("Error downloading zip:", error);
+      ToastError(error);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   useEffect(() => {
     let originalFiles = [...files];
@@ -273,9 +294,24 @@ export function CodeDevelopmentPhase({ selectedPhase, files, setFiles }: Builder
         </div>
         <div className="col-span-2 bg-gray-900 rounded-lg shadow-lg h-[calc(100vh-8rem)]">
           <div className="p-4 border-b border-gray-700">
-            <div className="flex items-center gap-2">
-              <Code2 className="w-4 h-4 text-gray-400" />
-              <span className="text-gray-300 font-medium">Code</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Code2 className="w-4 h-4 text-gray-400" />
+                <span className="text-gray-300 font-medium">Code</span>
+              </div>
+              <button
+                onClick={handleDownloadZip}
+                disabled={isDownloading || files.length === 0}
+                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
+                  isDownloading || files.length === 0
+                    ? "bg-gray-700 text-gray-500 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                }`}
+                title={`Download ${selectedPhase === "frontend-coding" ? "Frontend" : "Backend"} Code as ZIP`}
+              >
+                <Download className="w-4 h-4" />
+                <span>{isDownloading ? "Downloading..." : "Download ZIP"}</span>
+              </button>
             </div>
           </div>
           <div className="h-[calc(100%-4rem)]">

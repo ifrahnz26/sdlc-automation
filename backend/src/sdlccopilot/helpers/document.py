@@ -28,16 +28,20 @@ class DocumentHelper:
     def revised_functional_document_from_llm(self, functional_document, user_feedback):
         try:
             logging.info("Revising functional document with LLM...")
-            user_query = f"""EXISTING FUNCTIONAL DOCUMENT (PRESERVE ALL CONTENT NOT MENTIONED IN FEEDBACK):
+            user_query = f"""EXISTING FUNCTIONAL DOCUMENT (PRESERVE ALL CONTENT, STRUCTURE, AND ORDER):
 {functional_document}
 
 USER FEEDBACK (APPLY ONLY THESE CHANGES):
 {user_feedback}
 
-INSTRUCTIONS:
+CRITICAL INSTRUCTIONS:
 - Keep ALL existing sections, paragraphs, and content that are NOT mentioned in the feedback
+- MAINTAIN THE EXACT SAME SECTION ORDER and numbering as in the original document above
+- DO NOT reorganize, reorder, or restructure any sections
 - Only modify the specific parts requested in the user feedback
-- Return the complete document with all preserved content and incremental changes applied"""
+- If adding new content, add it within the relevant existing section or at the end of that section
+- If adding a completely new section, add it at the end of the document
+- Return the complete document with the exact same structure, order, and numbering, with only the requested changes applied"""
             chain = prompt_template | self.llm 
             response = chain.invoke({"system_prompt" : revised_functional_document_system_prompt, "human_query" : user_query})
             logging.info("Functional document revised with LLM.")
@@ -85,16 +89,20 @@ INSTRUCTIONS:
     def revised_technical_document_from_llm(self, technical_document, user_feedback):
         try:
             logging.info("Revising technical document with LLM...")
-            user_query = f"""EXISTING TECHNICAL DOCUMENT (PRESERVE ALL CONTENT NOT MENTIONED IN FEEDBACK):
+            user_query = f"""EXISTING TECHNICAL DOCUMENT (PRESERVE ALL CONTENT, STRUCTURE, AND ORDER):
 {technical_document}
 
 USER FEEDBACK (APPLY ONLY THESE CHANGES):
 {user_feedback}
 
-INSTRUCTIONS:
+CRITICAL INSTRUCTIONS:
 - Keep ALL existing sections, paragraphs, diagrams, tables, and content that are NOT mentioned in the feedback
+- MAINTAIN THE EXACT SAME SECTION ORDER and numbering as in the original document above
+- DO NOT reorganize, reorder, or restructure any sections
 - Only modify the specific parts requested in the user feedback
-- Return the complete document with all preserved content and incremental changes applied"""
+- If adding new content, add it within the relevant existing section or at the end of that section
+- If adding a completely new section, add it at the end of the document
+- Return the complete document with the exact same structure, order, and numbering, with only the requested changes applied"""
             chain = prompt_template | self.llm 
             response = chain.invoke({"system_prompt" : revised_technical_document_system_prompt, "human_query" : user_query})
             logging.info("Technical document revised with LLM.")
