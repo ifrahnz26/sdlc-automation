@@ -33,9 +33,6 @@ export default function ChatInterface({ selectedPhase, setSelectedPhase }: Props
       "backend-coding",
       "security",
       "testing",
-      "qa-testing",
-      "deployment",
-      "maintenance",
     ];
     const currentIndex = phaseOrder.indexOf(current);
 

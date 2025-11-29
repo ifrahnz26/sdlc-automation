@@ -8,8 +8,6 @@ from src.sdlccopilot.nodes.technical_document_nodes import TechnicalDocumentNode
 from src.sdlccopilot.nodes.development_nodes import DevelopmentNodes
 from src.sdlccopilot.nodes.test_cases_nodes import TestCaseNodes
 from src.sdlccopilot.nodes.security_review_nodes import SecurityReviewNodes
-from src.sdlccopilot.nodes.qa_testing_nodes import QATestingNodes
-from src.sdlccopilot.nodes.deployment_nodes import DeploymentNodes
 from IPython.display import Image, display
 from src.sdlccopilot.llms.gemini import GeminiLLM
 from src.sdlccopilot.llms.groq import GroqLLM
@@ -31,8 +29,6 @@ class SDLCGraphBuilder:
         self.development_node = DevelopmentNodes(anthropic_llm)
         self.security_review_node = SecurityReviewNodes(gemini_llm, anthropic_llm)
         self.test_case_node = TestCaseNodes(gemini_llm)
-        self.qa_testing_node = QATestingNodes(gemini_llm, anthropic_llm)
-        self.deployment_node = DeploymentNodes(qwen_llm)
         
     def build(self):
         """
@@ -75,13 +71,6 @@ class SDLCGraphBuilder:
         self.sdlc_graph_builder.add_node("generate_test_cases", self.test_case_node.generate_test_cases)
         self.sdlc_graph_builder.add_node("test_cases_review", self.test_case_node.test_cases_review)
         self.sdlc_graph_builder.add_node("revised_test_cases", self.test_case_node.revised_test_cases)
-        
-        ## QA testing
-        self.sdlc_graph_builder.add_node("perform_qa_testing", self.qa_testing_node.perform_qa_testing)
-        self.sdlc_graph_builder.add_node("fix_code_after_qa_testing", self.qa_testing_node.fix_code_after_qa_testing)
-        
-        ## Deployment
-        self.sdlc_graph_builder.add_node("generate_deployment_steps", self.deployment_node.generate_deployment_steps)
         
         ## Adding edges
         ## User Story
@@ -150,26 +139,11 @@ class SDLCGraphBuilder:
             self.test_case_node.should_fix_test_cases,
             {
                 "feedback" : "revised_test_cases",
-                "approved" : "perform_qa_testing"
+                "approved" : END
             }
         )
 
         self.sdlc_graph_builder.add_edge("revised_test_cases", "test_cases_review")
-        
-        ## QA testing 
-        self.sdlc_graph_builder.add_conditional_edges(
-            "perform_qa_testing",
-            self.qa_testing_node.should_fix_code_after_qa_testing,
-            {
-                "failed" : "fix_code_after_qa_testing",
-                "passed" : "generate_deployment_steps"
-            }
-        )
-        
-        self.sdlc_graph_builder.add_edge("fix_code_after_qa_testing", "review_backend_code")
-        
-        ## Deployment
-        self.sdlc_graph_builder.add_edge("generate_deployment_steps", END)
                 
         memory = MemorySaver()
         sdlc_workflow = self.sdlc_graph_builder.compile(checkpointer=memory, interrupt_before=['review_user_stories', 'review_functional_documents', 'review_technical_documents', 'review_frontend_code', 'review_backend_code', 'security_review', 'test_cases_review'])

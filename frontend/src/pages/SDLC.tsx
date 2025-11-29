@@ -11,7 +11,6 @@ import { FileItem } from "../types";
 import TechnicalDesignPhase from "../phases/TechnicalDesignPhase";
 import Security from "../phases/Security";
 import TestCases from "../phases/TestCases";
-import QATesting from "../phases/QATesting";
 
 export default function SDLC() {
   const location = useLocation();
@@ -57,7 +56,6 @@ export default function SDLC() {
           {selectedPhase === "backend-coding" && <CodeDevelopmentPhase selectedPhase={selectedPhase} files={backendFiles} setFiles={setBackendFiles} />}
           {selectedPhase === "security" && <Security />}
           {selectedPhase === "testing" && <TestCases />}
-          {selectedPhase === "qa-testing" && <QATesting />}
           {/* {selectedPhase === "technical-design" && <TechnicalDesignPhase />} */}
 
           {/* <div className="flex-1 p-6 overflow-y-auto">

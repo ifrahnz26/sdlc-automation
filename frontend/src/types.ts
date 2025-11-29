@@ -23,10 +23,7 @@ export type SDLCPhase =
   | "frontend-coding"
   | "backend-coding"
   | "security"
-  | "testing"
-  | "qa-testing"
-  | "deployment"
-  | "maintenance";
+  | "testing";
 
 export interface ChatMessage {
   id: string;

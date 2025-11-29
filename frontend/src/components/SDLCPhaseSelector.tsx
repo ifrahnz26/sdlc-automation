@@ -5,14 +5,11 @@ import {
   Palette,
   Code,
   TestTube,
-  Upload,
-  Settings,
   Shield,
   Book,
   Layers,
   CheckCircle,
   Server,
-  Bug,
   LockIcon,
   UnlockIcon,
 } from "lucide-react";
@@ -37,9 +34,6 @@ export const phases: { id: SDLCPhase; icon: React.ElementType; label: string }[]
   { id: "backend-coding", icon: Server, label: "Backend Coding" },
   { id: "security", icon: Shield, label: "Security Reviews" },
   { id: "testing", icon: TestTube, label: "Test Cases" },
-  { id: "qa-testing", icon: Bug, label: "QA Testing" },
-  { id: "deployment", icon: Upload, label: "Deployment" },
-  { id: "maintenance", icon: Settings, label: "Maintenance" },
 ];
 
 
