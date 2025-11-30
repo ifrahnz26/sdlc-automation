@@ -229,17 +229,17 @@ export default function ChatInterface({ selectedPhase, setSelectedPhase }: Props
   };
 
   return (
-    <div className="flex flex-col bg-gray-900 border-t border-gray-800" style={{ height: isApproved ? 'auto' : '300px', maxHeight: '300px' }}>
+    <div className="flex flex-col bg-gray-900 border-t border-gray-800 flex-shrink-0" style={{ maxHeight: isApproved ? 'auto' : '180px' }}>
       {/* Conversation History */}
       {messages.length > 0 && (
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-[150px]">
+        <div className="overflow-y-auto p-3 space-y-2" style={{ maxHeight: '100px' }}>
           {messages.map((message) => (
             <div
               key={message.id}
               className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-xs md:max-w-md p-3 rounded-lg ${
+                className={`max-w-xs md:max-w-md p-2 rounded-lg text-sm ${
                   message.sender === 'user'
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-800 text-gray-200'
@@ -252,12 +252,12 @@ export default function ChatInterface({ selectedPhase, setSelectedPhase }: Props
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="p-4 border-t border-gray-800">
+      <form onSubmit={handleSubmit} className="p-3 border-t border-gray-800 flex-shrink-0">
         <div className={`flex space-x-2 ${selectedPhase === 'requirements' && 'items-center justify-center'}`}>
           <button
             onClick={handleApproveAndContinue}
             disabled={isApproved}
-            className={`px-6 py-3 rounded-md transition-colors duration-200 ${
+            className={`px-4 py-2 rounded-md transition-colors duration-200 text-sm ${
               isApproved 
                 ? 'bg-green-600 text-white cursor-not-allowed' 
                 : 'bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 active:scale-[0.8]'
@@ -273,16 +273,16 @@ export default function ChatInterface({ selectedPhase, setSelectedPhase }: Props
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Provide feedback or request changes..."
                 disabled={isApproved}
-                className={`flex-1 bg-gray-800 border-gray-700 rounded-md px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`flex-1 bg-gray-800 border-gray-700 rounded-md px-3 py-2 text-sm text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                   isApproved ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               />
               <button
                 type="submit"
                 disabled={isApproved || loading}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4" />
               </button>
             </>}
         </div>

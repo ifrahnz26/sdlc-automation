@@ -53,20 +53,20 @@ export default function UserStoriesPhase() {
   }
 
   return (
-    <div className="flex-1 p-6 overflow-y-auto bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-gray-800 rounded-lg shadow-xl p-8 border border-gray-700">
-          <div className="border-b border-gray-700 pb-6 mb-6">
-            <h3 className="text-2xl font-bold text-white mb-2">
+    <div className="flex-1 overflow-y-auto bg-gray-900">
+      <div className="max-w-6xl mx-auto p-4">
+        <div className="bg-gray-800 rounded-lg shadow-xl p-6 border border-gray-700">
+          <div className="border-b border-gray-700 pb-4 mb-4">
+            <h3 className="text-xl font-bold text-white mb-1">
               User Story Phase
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm">
               These user stories define the functionality of your application
               from the perspective of the user.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {userStories.user_stories.map((userStory, index) => {
               const colorClass = badgeColors[index % badgeColors.length];
               return (
@@ -76,15 +76,15 @@ export default function UserStoriesPhase() {
                 >
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Left side - User Story Details */}
-                    <div className="p-6 border-b md:border-b-0 md:border-r border-gray-600 space-y-4">
+                    <div className="p-4 border-b md:border-b-0 md:border-r border-gray-600 space-y-3">
                       <div className="flex items-center gap-2">
                         <span
-                          className={`text-xs font-bold uppercase tracking-wide  px-3 py-1 rounded-full  ${colorClass}`}
+                          className={`text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full ${colorClass}`}
                         >
                           {userStory.story_id}
                         </span>
                       </div>
-                      <h4 className="text-2xl font-bold text-white">
+                      <h4 className="text-xl font-bold text-white">
                         {userStory.title}
                       </h4>
                       <p className="text-gray-300 leading-relaxed text-sm">
@@ -93,16 +93,16 @@ export default function UserStoriesPhase() {
                     </div>
 
                     {/* Right side - Acceptance Criteria */}
-                    <div className="p-6 bg-gray-800/50 space-y-4">
-                      <h4 className="text-lg font-semibold text-white">
+                    <div className="p-4 bg-gray-800/50 space-y-3">
+                      <h4 className="text-base font-semibold text-white">
                         Acceptance Criteria
                       </h4>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1.5">
                         {userStory.acceptance_criteria.map(
                           (criteria, index) => (
                             <li
                               key={index}
-                              className="flex items-start gap-3 text-gray-300 text-sm"
+                              className="flex items-start gap-2 text-gray-300 text-sm"
                             >
                               <span className="text-blue-400">•</span>
                               <span>{criteria}</span>
