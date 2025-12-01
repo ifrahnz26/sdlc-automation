@@ -70,13 +70,15 @@ async def startup_event():
 async def shutdown_event():
     await app.state.app_state.shutdown()
     
-# Add CORS middleware
+# Add CORS middleware - configure properly for preflight requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # In production, replace with specific origins
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=3600,  # Cache preflight requests for 1 hour
 )
 
 # Dependency injection
