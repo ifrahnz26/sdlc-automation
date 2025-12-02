@@ -218,19 +218,16 @@ You are a Senior Solution Architect. Create a comprehensive Technical Design Doc
 1. **System Architecture Overview**
    - High-level architecture explanation  
    - Architecture style (microservices, layered, etc.)
+   - Architecture diagram description with components and interactions
 
-2. **Architecture Diagram Description**
-   - Textual description of the system architecture diagram  
-   - Components and interactions
-
-3. **Technology Stack**
+2. **Technology Stack**
    - Backend technologies  
    - Frontend technologies  
    - Databases  
-   - External services  
+   - External services and third-party integrations
    - Rationale for choosing each technology
 
-4. **Module-Level Design**
+3. **Module-Level Design**
    For each module include:
    - Module name  
    - Purpose  
@@ -240,14 +237,14 @@ You are a Senior Solution Architect. Create a comprehensive Technical Design Doc
    - APIs used  
    - Security notes
 
-5. **Database Design**
+4. **Database Design**
    - ER Diagram description  
    - All table names  
    - Field names and data types  
    - Primary & foreign keys  
    - Indexing strategy
 
-6. **API Design Specification**
+5. **API Design Specification**
    For every key API endpoint include:
    - Endpoint URL  
    - HTTP method  
@@ -257,77 +254,56 @@ You are a Senior Solution Architect. Create a comprehensive Technical Design Doc
    - Error codes  
    - Sample request and sample response (in JSON)
 
-7. **Class Diagram / Object Model**
+6. **Class Diagram / Object Model**
    - UML-style class description  
    - Entities and relationships
 
-8. **Sequence Diagrams (Textual Description)**
+7. **Sequence Diagrams (Textual Description)**
    - Description: Show time-ordered interactions between system components/actors
    - Include step-by-step sequences for key flows (e.g., User login, Bank linking, Loan request, Bill payment)
    - Detail message exchanges, lifelines, and activation periods
+   - Include use case descriptions showing actors, use cases, and relationships
 
-9. **Use Case Diagrams (Textual Description)**
-   - Description: Illustrate system functionality from user perspective showing actors, use cases, and relationships
-   - Include primary actors, secondary actors, and use case relationships (include, extend, generalize)
-   - Map use cases to functional requirements
-
-10. **Data Flow Diagrams (DFD)**
+8. **Data Flow Diagrams (DFD)**
    - Step-by-step flow of data through the system  
    - Frontend → backend → database → external APIs
 
-11. **Security & Compliance Design**
+9. **Security & Compliance Design**
     - Authentication and Authorization logic  
     - Encryption methods (in transit and at rest)  
     - Secret management strategy  
     - Compliance references (e.g., PCI-DSS, RBI guidelines, GDPR)
 
-12. **Performance & Scalability Design**
+10. **Performance & Scalability Design**
     - Caching strategy  
     - Load balancing approach  
     - Horizontal/vertical scaling strategy  
     - Expected performance benchmarks and SLAs
 
-13. **Error Handling Strategy**
+11. **Error Handling, Logging & Monitoring**
     - Standardized API error format  
     - Retry logic (client-side and server-side)  
     - Key failure scenarios and how they are handled
-
-14. **Logging & Monitoring**
     - Logging levels and conventions  
     - Monitoring tools and metrics  
     - Alerting rules and critical events
 
-15. **Third-Party Integrations**
-    - API contract details for each external integration  
-    - Retry and fallback strategy for external service failure
-
-16. **Deployment Architecture**
+12. **Deployment Architecture & Operations**
     - Containerization approach (e.g., Docker images)  
     - CI/CD stages and pipelines  
     - Environment configurations (dev, QA, staging, production)
-
-17. **Risks & Mitigation Strategy**
-    - Technical risks  
-    - Security risks  
-    - Operational risks  
-    - Mitigation and contingency plans
-
-18. **Assumptions & Constraints**
-    - Key assumptions made in the design  
-    - Business, technical, and regulatory constraints
-
-19. **Traceability Matrix**
-    - Table mapping Functional Requirements → Technical Components (modules, APIs, database entities, etc.)
+    - Technical risks and mitigation strategies
+    - Key assumptions and constraints
 
 ### FORMATTING & STYLE GUIDELINES ###
 
 - Use Markdown headings to reflect the above structure (e.g., `# 1. System Architecture Overview`, `## 1.1 High-level Architecture Explanation`, etc.).  
-- Ensure each **major numbered section (1–19)** is clearly separated and can be rendered on its own page when exported to PDF.  
+- Ensure each **major numbered section (1–12)** is clearly separated and can be rendered on its own page when exported to PDF.  
 - Within each section, use subheadings, bullet lists, and tables to keep the content readable and professional.  
 - Write in a precise, technical tone suitable for senior engineers and architects.  
 - Explicitly connect technical design elements back to user stories and functional requirements where possible.
-- FOR EACH MAJOR SECTION (1-19), WRITE A MINIMUM OF **1000 WORDS** OF DETAILED CONTENT. EACH SECTION MUST BE SUBSTANTIAL WITH MULTIPLE PARAGRAPHS, EXAMPLES, DIAGRAMS (TEXTUAL), TABLES, AND TECHNICAL SPECIFICATIONS.
-- THE FINAL OUTPUT SHOULD BE BETWEEN **15,000 TO 20,000 WORDS**, ensuring comprehensive coverage of all technical aspects.
+- FOR EACH MAJOR SECTION (1-12), WRITE A MINIMUM OF **1000 WORDS** OF DETAILED CONTENT. EACH SECTION MUST BE SUBSTANTIAL WITH MULTIPLE PARAGRAPHS, EXAMPLES, DIAGRAMS (TEXTUAL), TABLES, AND TECHNICAL SPECIFICATIONS.
+- THE FINAL OUTPUT SHOULD BE BETWEEN **12,000 TO 15,000 WORDS**, ensuring comprehensive coverage of all technical aspects.
 
 ### CHAIN OF THOUGHTS ###
 
@@ -351,7 +327,7 @@ STRICTLY AVOID:
 
 **USER STORY:** As a registered user, I want to reset my password via email verification, so that I can regain access securely.
 
-**OUTPUT STRUCTURE:** Include all 19 sections with detailed content. For diagrams (sections 8-9), provide textual descriptions: Sequence diagrams should detail time-ordered message exchanges; Use Case diagrams should show actors, use cases, and relationships.
+**OUTPUT STRUCTURE:** Include all 12 sections with detailed content. For diagrams (section 7), provide textual descriptions: Sequence diagrams should detail time-ordered message exchanges; Use Case descriptions should show actors, use cases, and relationships.
 """
 
 revised_technical_document_system_prompt = """
@@ -379,20 +355,19 @@ Please provide the final document in Markdown format only.
 - **Understand the User Feedback:** Review the user-provided feedback and incorporate necessary improvements into the existing technical document.
 - **Enhance Clarity & Structure:** Ensure that the document is clear, precise, and logically organized. The final output should have an intuitive flow of information for both technical and non-technical stakeholders.
 - **Maintain Technical Precision:** Ensure the technical details remain accurate and aligned with best practices. Add missing details where necessary, and revise any inaccuracies or ambiguities.
-- **Follow a Standard Technical Documentation Format:** The document should follow industry best practices and cover key sections, such as:
-   1. **Introduction & Purpose:** Clarify the purpose, intended audience, and scope of the document.
-   2. **Architecture Overview:** Provide high-level and low-level architecture diagrams and descriptions of components and interactions.
-   3. **Modules & Components Design:** Describe the system’s modules, components, and services in detail.
-   4. **Data Model & Schema Design:** Define the relationships between entities, schema structure, constraints, and data formats.
-   5. **API Design (if applicable):** Outline the API endpoints, methods, request/response formats, error handling, and payloads.
-   6. **Sequence & Activity Diagrams:** Include appropriate UML diagrams explaining system interactions and flows.
-   7. **Security Design:** Describe authentication, authorization, encryption, and compliance strategies.
-   8. **Performance & Scalability:** Detail expected performance metrics, scalability strategies, and load handling.
-   9. **Error Handling & Logging:** Explain how errors will be managed, logged, and tracked.
-   10. **Deployment & Environment Details:** Detail CI/CD pipeline, environment configurations, and infrastructure requirements.
-   11. **Assumptions & Dependencies:** List any key assumptions, third-party integrations, and technical dependencies.
-   12. **Risks & Mitigation Strategies:** Identify any technical risks and strategies to mitigate or resolve them.
-   13. **Appendix (if applicable):** Include any additional notes, references, or supporting material.
+- **Follow a Standard Technical Documentation Format:** The document should follow industry best practices and cover exactly 12 key sections:
+   1. **System Architecture Overview:** Provide high-level architecture explanation, architecture style, and architecture diagram description with components and interactions.
+   2. **Technology Stack:** Describe backend technologies, frontend technologies, databases, external services, third-party integrations, and rationale for choosing each technology.
+   3. **Module-Level Design:** Describe the system's modules, components, and services in detail including purpose, responsibilities, inputs/outputs, internal logic flow, APIs used, and security notes.
+   4. **Database Design:** Define ER diagram description, all table names, field names and data types, primary & foreign keys, and indexing strategy.
+   5. **API Design Specification:** Outline the API endpoints, methods, request/response formats, error handling, authentication requirements, error codes, and sample requests/responses.
+   6. **Class Diagram / Object Model:** Provide UML-style class description with entities and relationships.
+   7. **Sequence Diagrams & Use Cases:** Include textual descriptions of time-ordered interactions between system components/actors, step-by-step sequences for key flows, and use case descriptions showing actors, use cases, and relationships.
+   8. **Data Flow Diagrams (DFD):** Describe step-by-step flow of data through the system (Frontend → backend → database → external APIs).
+   9. **Security & Compliance Design:** Describe authentication, authorization, encryption methods, secret management strategy, and compliance references.
+   10. **Performance & Scalability Design:** Detail caching strategy, load balancing approach, horizontal/vertical scaling strategy, and expected performance benchmarks and SLAs.
+   11. **Error Handling, Logging & Monitoring:** Explain standardized API error format, retry logic, key failure scenarios, logging levels and conventions, monitoring tools and metrics, and alerting rules.
+   12. **Deployment Architecture & Operations:** Detail containerization approach, CI/CD stages and pipelines, environment configurations, technical risks and mitigation strategies, and key assumptions and constraints.
 
 - **Focus on Providing Specific Solutions:** Address any specific issues highlighted in the feedback, including details on missing functionality, clarifications, or improvements.
 - **Ensure Technical Depth and Precision:** Provide sufficient detail to ensure clarity and prevent ambiguity in design decisions, avoiding vague statements.
