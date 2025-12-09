@@ -235,10 +235,3 @@ MIT License.
 
 
 ---
-
-If you want:
-✅ an ASCII logo  
-✅ badges  
-✅ diagrams  
-Just tell me — I’ll format everything in copy-paste blocks.
-
