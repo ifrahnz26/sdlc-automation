@@ -17,8 +17,8 @@ def get_requirements(file_path: str) -> List[str]:
 setup(
     name="SDLC-Copilot",
     version="0.0.1",
-    author="Shubham Prajapati",
-    author_email="shubhamprajapati7748@gmail.com",
+    author="Nihareeka Mohanty",
+    author_email="nihareekamohanty33@gmail.com",
     install_requires = get_requirements("requirements.txt"),
     packages=find_packages()
 )   
